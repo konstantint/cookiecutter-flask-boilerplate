@@ -110,7 +110,6 @@ See also
   * [Flask-Heroku template](https://github.com/zachwill/flask_heroku)
   * [Python-Boilerplate template](https://github.com/konstantint/cookiecutter-python-boilerplate)
 
-
 Copyright & License
 -------------------
 
