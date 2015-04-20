@@ -7,5 +7,5 @@ install:
 script:
   - cookiecutter --no-input https://github.com/konstantint/cookiecutter-flask-boilerplate.git
   - cd flaskboilerplate
-  - python setup.py develop
+  - pip install -r requirements.txt
   - python setup.py develop test
