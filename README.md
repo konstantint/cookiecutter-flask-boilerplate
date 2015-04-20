@@ -106,9 +106,13 @@ Common development tasks
 
 See also
 --------
-  * [CookieCutter-Flask template](https://github.com/sloria/cookiecutter-flask)
-  * [Flask-Heroku template](https://github.com/zachwill/flask_heroku)
-  * [Python-Boilerplate template](https://github.com/konstantint/cookiecutter-python-boilerplate)
+  * Alternative flask templates:
+      * https://github.com/sloria/cookiecutter-flask
+      * https://github.com/zachwill/flask_heroku
+      * https://github.com/berlotto/flask-app-template
+      * https://github.com/kamalgill/flask-appengine-template
+  * Buildout project boilerplate template: https://github.com/konstantint/cookiecutter-python-boilerplate
+  * Blog post: http://fouryears.eu/2015/04/21/a-flask-project-template/
 
 Copyright & License
 -------------------
