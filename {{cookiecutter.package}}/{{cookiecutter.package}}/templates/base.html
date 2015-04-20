@@ -1,11 +1,12 @@
+{% raw %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-    <title>{% block title %}{{cookiecutter.project}}{% endblock %}</title>
-    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}"/>
+    <title>{% block title %}{{config['TITLE']}}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon-32.png')}}"/>
 
     {# Include CSS #}
     {% if config['USE_CDN_ASSETS'] %}
@@ -60,3 +61,4 @@
     {% block js %}{# defer-capable JS block #}{% endblock %}
 </body>
 </html>
+{% endraw %}

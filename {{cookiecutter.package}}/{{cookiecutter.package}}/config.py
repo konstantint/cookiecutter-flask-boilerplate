@@ -51,6 +51,8 @@ class Config(object):
     # See assets.py
     USE_CDN_ASSETS = False
 
+    # App title, used in base.html and nav.html
+    TITLE = "{{cookiecutter.project}}"
 
 class TestConfig(Config):
     DEBUG = False

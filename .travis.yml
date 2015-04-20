@@ -1,0 +1,11 @@
+language: python
+python:
+  - 2.7
+  - 3.4
+install:
+  - pip install cookiecutter
+script:
+  - cookiecutter --no-input https://github.com/konstantint/cookiecutter-flask-boilerplate.git
+  - cd flaskboilerplate
+  - python setup.py develop
+  - python setup.py develop test

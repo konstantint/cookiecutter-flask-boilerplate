@@ -1,3 +1,4 @@
+{% raw %}
 {% macro render_field(field) -%}
      <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }}">
         {% if field.type != 'HiddenField' %}
@@ -52,3 +53,4 @@
     </div>
 </form>
 {%- endmacro %}
+{% endraw %}

@@ -27,10 +27,10 @@ If have just created this package from the template or checked it out from versi
 pre-built source distribution), you *might* also need to update the Javascript dependencies using `Bower <http://bower.io/>`_::
 
     $ bower install
-    
+
 In addition, you might need to create the Javascript/CSS asset bundle by running::
 
-    $ {{cookiecutter.package}}-manage assets create
+    $ {{cookiecutter.package}}-manage assets build
 
 The package can be published on PyPI::
 
@@ -54,7 +54,7 @@ perform some preparatory steps.
     3. Create the initial database::
 
        $ {{cookiecutter.package}}-manage createdb
-       
+
     4. Decide how you would like to run the application. There are multiple options. One is to use the built-in debug server::
 
        $ {{cookiecutter.package}}-manage runserver
@@ -70,4 +70,14 @@ Development
 -----------
 
 In order to understand the package organization it probably makes most sense to start by examining the ``{{cookiecutter.package}}.app`` module.
-All other extension modules and blueprints are enabled in the ``create_app`` function there. The tests should be written in ``tests/``. Those can be run using ``py.test``.
+All other extension modules and blueprints are enabled in the ``create_app`` function there.
+
+The tests should be written in ``tests/``. Those can be run using ``py.test``.
+
+The Javascript and CSS scripts are bundled using Flask-Assets. Each time you change javascript or CSS, you have to rebuild those bundles using::
+
+    $ {{cookiecutter.package}}-manage assets build
+
+Alternatively, you can run a background process that will rebuild everything automatically::
+
+    $ {{cookiecutter.package}}-manage assets watch

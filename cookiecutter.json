@@ -1,7 +1,6 @@
 {
-  "project_name": "My Flask App",
+  "project": "My Flask App",
   "package": "flaskboilerplate",
-  "version": "0.1",
   "description": "One-line description of the app",
   "author": "Anonymous Author",
   "email": "email@address.here",

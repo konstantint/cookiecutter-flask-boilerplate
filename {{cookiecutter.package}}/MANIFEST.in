@@ -1,4 +1,4 @@
-include LICENSE.txt README.rst sample_settings.py sample_pasteconfig.ini setup.cfg
+include CHANGELOG.txt LICENSE.txt README.rst sample_settings.py sample_pasteconfig.ini setup.cfg
 recursive-include {{cookiecutter.package}}/templates *.html
 recursive-include {{cookiecutter.package}}/static *
 prune {{cookiecutter.package}}/static/.webassets-cache
