@@ -1,0 +1,19 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            {% if category == 'warning' or category == 'danger' %}
+                {% set icon = 'glyphicon glyphicon-exclamation-sign' %}
+            {% elif category == 'success' %}
+                {% set icon = 'glyphicon glyphicon-ok-sign' %}
+            {% else %}
+                {% set icon = 'glyphicon glyphicon-info-sign' %}
+                {% set category = 'info' %}
+            {% endif %}
+            <div class="alert alert-{{ category }}">
+                <i class="{{ icon }}"></i>&nbsp;
+                <a class="close" data-dismiss="alert">×</a>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}

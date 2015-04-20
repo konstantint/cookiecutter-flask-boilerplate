@@ -1,0 +1,3 @@
+{
+  "directory": "{{cookiecutter.package}}/static/libs"
+}

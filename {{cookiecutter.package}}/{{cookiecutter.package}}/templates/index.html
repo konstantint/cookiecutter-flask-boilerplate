@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div style="width: 60%; margin: 10px auto 50px auto; text-align: justify">
+            <h2>Welcome</h2>
+            <p>
+                This is a bare Flask website, created using the <a href="https://github.com/konstantint/cookiecutter-flask-boilerplate"><code>konstantint/cookiecutter-flask-boilerplate.git</code></a> template.
+            </p>
+            <p>
+                {% if current_user.is_authenticated() %}
+                  Hi, {{ current_user.login }}, you can <a href="{{url_for('auth.logout')}}">logout</a> now.
+                {% else %}
+                  You can try to <a href="{{url_for('auth.login')}}">log in</a> using username admin and password admin.
+                {% endif %}
+            </p>
+            <p>
+                A barebones <a href="{{url_for('admin.index')}}">Site Administration Page</a> is available in this template.
+            </p>
+
+        </div>
+    </div>
+{% endblock %}

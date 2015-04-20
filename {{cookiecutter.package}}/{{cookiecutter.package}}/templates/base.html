@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <title>{% block title %}{{cookiecutter.project}}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}"/>
+
+    {# Include CSS #}
+    {% if config['USE_CDN_ASSETS'] %}
+        {% for script_url in config['css_thirdparty_cdn'] %}
+            <link rel="stylesheet" href="{{ script_url }}">
+        {% endfor %}
+    {% else %}
+        {% assets "css_thirdparty" %}
+            <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
+    {% endif %}
+
+    {% assets "css_local" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+
+    {% block css %}{# page-specific CSS #}{% endblock %}
+
+    {% block head_script %}{# defer-incapable JS block #}{% endblock %}
+</head>
+<body>
+    {% include 'includes/nav.html' %}
+
+    <div class="container" id="maincontent">
+        {% include 'includes/flash_message.html' %} {# page-level feedback notices #}
+        <div id="body_content">
+            {% block content %}{# main content area #}{% endblock %}
+        </div>
+    </div>
+    
+    <footer>
+        <div id="footer" class="container">
+            {% block footer %}{% endblock %}
+        </div>
+    </footer>
+
+    {# Include Javascript #}
+    {% if config['USE_CDN_ASSETS'] %}
+        {% for script_url in config['js_thirdparty_cdn'] %}
+            <script src="{{script_url}}"></script>
+        {% endfor %}
+    {% else %}
+        {% assets "js_thirdparty" %}
+            <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+        {% endassets %}
+    {% endif %}
+
+    {% assets "js_local" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
+    {% block js %}{# defer-capable JS block #}{% endblock %}
+</body>
+</html>

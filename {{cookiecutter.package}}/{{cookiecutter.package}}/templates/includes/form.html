@@ -1,0 +1,54 @@
+{% macro render_field(field) -%}
+     <div class="form-group {% if field.errors %}has-error{% endif %} {{ kwargs.pop('class_', '') }}">
+        {% if field.type != 'HiddenField' %}
+            {{ field.label(class_ = "control-label col-sm-2") }}
+        {% endif %}
+        <div class="col-sm-4">
+            {{ field(class_='form-control input-sm', placeholder=field.label.text, **kwargs) }}
+        </div>
+        {% if field.errors %}
+            <div class="col-sm-6">
+                {% for e in field.errors %}
+                    <div class="help-block">{{ e }}</div>
+                {% endfor %}
+            </div>
+        {% elif field.description %}
+            <div class="col-sm-6">
+                {{ field.description }}
+            </div>        
+        {% endif %}
+    </div>
+{%- endmacro %}
+
+{% macro render_form(form, submit_text="Submit") -%}
+<form class="form-horizontal" role="form" method="post">
+    {{ form.hidden_tag() }}
+    {% for f in form %}
+        {% if f.type == 'BooleanField' %}
+            <div class="form-group {% if f.errors %}has-error{% endif %}">
+                <div class="col-sm-2 text-right">
+                    {{ f(type='checkbox') }}
+                </div>
+                <div class="col-sm-4">
+                    {{ f.label }}
+                </div>
+                {% if f.errors %}
+                    <div class="col-sm-6">
+                        {% for e in f.errors %}
+                            <div class="help-block">{{ e }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% elif f.type != 'CSRFTokenField' %}
+            {{ render_field(f) }}
+        {% endif %}
+    {% endfor %}
+    
+    <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">{{submit_text}}</button>
+            </div>
+    </div>
+</form>
+{%- endmacro %}

@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.4"
+  - "2.7"
+
+# Flask somewhy fails to install on first "python setup.py develop" attempt
+script:
+  - python setup.py develop
+  - python setup.py develop
+  - python setup.py test
