@@ -6,7 +6,7 @@ Copyright {{cookiecutter.year}}, {{cookiecutter.author}}
 License: {{cookiecutter.license}}
 """
 from flask import Blueprint, render_template, flash
-blueprint = Blueprint('main', __name__, url_prefix='/')
+blueprint = Blueprint('main', __name__, url_prefix='')
 
 
 # ----------------------------------- Views ------------------------------------- #
