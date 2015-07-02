@@ -10,10 +10,10 @@ License: {{cookiecutter.license}}
 """
 from flask.ext.babel import Babel
 
+def get_locale():
+    return 'en'
 
 def init_app(app):
     babel = Babel(app)
 
-    @babel.localeselector
-    def get_locale():
-        return 'en'
+    babel.localeselector(get_locale)
