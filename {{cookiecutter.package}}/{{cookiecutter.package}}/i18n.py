@@ -15,5 +15,4 @@ def get_locale():
 
 def init_app(app):
     babel = Babel(app)
-
     babel.localeselector(get_locale)
